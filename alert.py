@@ -46,7 +46,7 @@ def main():
                                      email_password)
                     smtpserver.sendmail(email_username, email, msg.as_string())
 
-                msg = 'Received'
+                msg = f'Alert has been sent to {email}'
                 socket.send(msg.encode('utf-8'))
     except KeyboardInterrupt:
         print("Email sender is shutting down")
