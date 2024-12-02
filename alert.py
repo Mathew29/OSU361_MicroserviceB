@@ -1,9 +1,6 @@
 import os
 import zmq
-import json
-import time
 import smtplib
-from pprint import pprint
 from dotenv import load_dotenv
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -21,7 +18,6 @@ def main():
         while True:
             if socket.poll(1000):
                 obj = socket.recv_json()
-
                 email, name, url = obj["email"], obj["name"], obj["url"]
 
                 subject = "Price Alert"
